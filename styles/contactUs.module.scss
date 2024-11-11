@@ -1,0 +1,140 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.contact :global {
+  iframe {
+    width: 100vw;
+    height: 50vh;
+    min-height: 600px;
+    clip-path: ellipse(157% 100% at 48% 0%);
+    margin-bottom: 111px;
+    @include sm {
+      height: 30vh;
+      margin-bottom: 51px;
+      clip-path: ellipse(257% 100% at 48% 0%);
+    }
+  }
+  .container {
+    .contacts {
+      position: relative;
+      z-index: 99;
+      margin-bottom: clamp(60px, 16vw, 166px);
+      gap: 42px;
+      @include flex(_, _, stretch);
+      & > * {
+        width: 50%;
+      }
+      @include sm {
+        justify-content: center;
+        flex-wrap: wrap;
+        & > * {
+          width: 100%;
+        }
+      }
+      .info {
+        .section-tag {
+          color: $brown;
+        }
+        p {
+          font-size: 16px;
+          line-height: 2;
+        }
+      }
+      .links {
+        gap: 20px;
+        @include flex(column, _, stretch);
+        @include sm {
+          align-items: center;
+          .contact-element {
+            width: 100%;
+            min-width: 200px;
+            @include xxss {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
+        }
+        .contact-element {
+          text-align: center;
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 35px;
+          > div {
+            align-self: center;
+            text-align: start;
+            margin-inline-start: 23px;
+          }
+          .icon {
+            width: 46px;
+            height: 46px;
+            background: #f8f0d4;
+            padding: 15px;
+            border-radius: 50%;
+            align-self: flex-start;
+            @include flex(_, center);
+            img {
+              filter: brightness(1) invert(48%) sepia(70%) saturate(411%)
+                hue-rotate(346deg) brightness(96%) contrast(91%);
+            }
+          }
+          .contact-details {
+            color: $mainColor;
+            font-family: "font-bold";
+            font-size: 20px;
+            gap: 15px;
+            @include flex(column, _, stretch);
+            p {
+              &:nth-child(2) {
+                font-size: 16px;
+                line-height: 2;
+                color: rgba($brown, 0.5);
+              }
+              a {
+                color: inherit;
+                transition: $transition;
+                &:hover {
+                  color: $hoverColor;
+                  transition: $transition;
+                }
+              }
+            }
+          }
+        }
+      }
+      form {
+        @include flex(column, space-between, stretch);
+        // @include sm {
+        //   gap: 30px;
+        // }
+        .inputs {
+          gap: 30px;
+          @include flex(column, space-between, stretch);
+          .form-group {
+            color: #a87c4f;
+            input,
+            textarea {
+              margin-top: 30px;
+              border: 1px solid $offWhite;
+              border-radius: 10px;
+              width: 100%;
+              padding: 18px 15px;
+              color: $mainColor;
+              &:focus {
+                border-color: $brown;
+                outline: none;
+                box-shadow: none;
+              }
+            }
+          }
+          button {
+            padding: 20px 0;
+            width: 100%;
+            background: linear-gradient(90deg, #754c28 0.01%, #3b2314 134.98%);
+            border-radius: 10px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

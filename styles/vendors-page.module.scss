@@ -1,0 +1,11 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.vendors {
+  & > div:nth-child(2) {
+    margin-top: 89px;
+    @include sm {
+      margin-top: 0px;
+    }
+  }
+}

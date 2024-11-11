@@ -1,0 +1,201 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.header {
+  position: relative;
+  background-color: white;
+  :global {
+    .mobile-header,
+    .toggle-handle {
+      display: none;
+    }
+    img.logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      @include xs {
+        height: 55px;
+      }
+    }
+    label {
+      width: 100%;
+      max-width: 100%;
+      @include md {
+        width: 500px;
+      }
+    }
+    .wrapper {
+      padding: 40px 0;
+      // gap: 57px;
+      @include flex(_, space-between);
+      // flex-wrap: wrap;
+      .header-links {
+        gap: clamp(15px, 2vw, 30px);
+        @include flex();
+        @include md {
+          flex-wrap: wrap;
+        }
+        label {
+          display: inline-flex;
+        }
+        a {
+          border: 1px solid transparent;
+          border-radius: 30px;
+          padding: 10px 20px;
+          transition: $transition;
+          color: $brown;
+          white-space: nowrap;
+          @include textGradientColor();
+          &:hover,
+          &.active {
+            border-color: $mainColor;
+            background: none;
+            -webkit-text-fill-color: unset;
+            color: $mainColor;
+          }
+          li {
+            list-style: none;
+          }
+        }
+        .nav-links {
+          gap: 30px;
+          @include flex();
+          & > img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+          }
+          a {
+            border: 1px solid transparent;
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: $transition;
+            color: $secondaryColor;
+            // @include textGradientColor();
+            &:hover,
+            &.active {
+              border-color: $mainColor;
+              background: none;
+              -webkit-text-fill-color: unset;
+              color: $mainColor;
+            }
+            li {
+              list-style: none;
+            }
+          }
+        }
+      }
+      .header-socials {
+        @include flex(_, center);
+        gap: 21px;
+        a {
+          width: 50px;
+          height: 50px;
+          padding: 17px;
+          border: 1.5px solid $mainColor;
+          border-radius: 50%;
+          color: $mainColor;
+          @include flex(_, center);
+          &:first-child {
+            background: $secondaryColor;
+            color: $brown;
+          }
+
+          &:hover {
+            background: $secondaryColor;
+          }
+        }
+      }
+    }
+    .checkbox-hide-div {
+      display: none;
+    }
+    @include md {
+      .mobile-header,
+      .toggle-handle {
+        display: block;
+      }
+      .toggle-handle {
+        width: 50px;
+        height: 50px;
+        border: 1px solid $brown;
+        border-radius: 50%;
+        padding: 15px;
+        @include flex(_, center);
+        cursor: pointer;
+        img {
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+      .mobile-header {
+        padding: 17px 0;
+        @include flex(_, space-between);
+      }
+      .wrapper {
+        position: relative;
+        // display: none;
+        transition: $transition;
+        //  position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        transition: $transition;
+        // width: 100%;
+        max-width: 500px;
+        height: 100vh;
+        z-index: $zIndex_3;
+        background: url("../../../assets/images/chocolate.png") no-repeat;
+        background-position: bottom center;
+        background-size: 150px;
+        background-color: $secondaryColor;
+        gap: 20px;
+        .header-links {
+          flex-direction: column;
+        }
+        .header-socials {
+          width: 80%;
+          flex-wrap: wrap;
+        }
+        .toggle-handle {
+          position: absolute;
+          top: 40px;
+          left: 2%;
+        }
+      }
+      .wrapper-backdrop {
+        translate: -100vw 0;
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: $transition;
+        z-index: 9999;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.377);
+          backdrop-filter: blur(2px);
+          z-index: -2;
+        }
+        [dir="rtl"] & {
+          translate: 100vw 0;
+        }
+      }
+      .checkbox-hide-div {
+        &:checked + * {
+          translate: 0;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

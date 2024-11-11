@@ -1,0 +1,199 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.footer {
+  position: relative;
+  margin-top: clamp(35px, 9vw, 95px);
+  margin-bottom: clamp(20px, 6vw, 60px);
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: url("../../../assets/images/offers-back.png") no-repeat;
+    background-size: cover;
+    clip-path: ellipse(147% 60% at 48% 60%);
+    @include sm {
+      clip-path: ellipse(247% 60% at 48% 60%);
+    }
+    z-index: -1;
+  }
+  :global {
+    .wrapper {
+      padding: 40px 0;
+      gap: 5px;
+      @include flex(_, space-evenly, flex-start);
+      @include sm {
+        flex-wrap: wrap;
+        // flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      & > div {
+        flex-direction: column !important;
+      }
+      .info {
+        @include flex(column);
+      }
+      .tag-text {
+        // text-align: center;
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 300px;
+        color: $secondaryColor;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .section-tag {
+        // width: 50vw;
+        height: 50px;
+        color: $secondaryColor;
+        background: none;
+        -webkit-text-fill-color: unset;
+
+        border-bottom: 1px solid;
+
+        border-image-source: radial-gradient(
+            50.17% 19277851.48% at 50% 49.76%,
+            transparent 0%,
+            $secondaryColor 54.17%,
+            transparent 90%
+          )
+          /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+        border-image-slice: 1;
+        @media (max-width: 768px) {
+          width: 100vw;
+        }
+        &:before,
+        &::after {
+          background: url("../../../assets/svgs/section-tag-leaf-light.svg")
+            no-repeat;
+        }
+      }
+
+      .nav-links {
+        gap: 30px;
+        @include flex();
+        flex-wrap: wrap;
+        @include sm {
+          justify-content: center;
+        }
+        @media (max-width: 768px) {
+          // display: block;
+          width: auto;
+          text-align: center;
+        }
+        div {
+          gap: 5px;
+          @include flex(column, center);
+        }
+        & > img {
+          height: 80px;
+          width: auto;
+          object-fit: contain;
+        }
+        a {
+          border: 1px solid transparent;
+          border-radius: 30px;
+          padding: 10px 20px;
+          transition: $transition;
+          color: $secondaryColor;
+          display: block;
+          // @include textGradientColor();
+          @media (max-width: 625px) {
+            display: block;
+          }
+          &:hover,
+          &.active {
+            border-color: $mainColor;
+            background: none;
+            -webkit-text-fill-color: unset;
+            color: $mainColor;
+          }
+          li {
+            list-style: none;
+          }
+        }
+      }
+      .contacts {
+        gap: 30px;
+        @include flex(_, center);
+        flex-wrap: wrap;
+
+        a {
+          width: auto;
+          height: auto;
+          border-radius: 35px;
+          padding: 14px 20px;
+          background: $secondaryColor;
+          color: $brown;
+          font-size: 16px;
+          line-height: 18px;
+          border: 0;
+          white-space: nowrap;
+          gap: 11px;
+          @include flex();
+          &.mail {
+            background: $mainColor;
+            color: $secondaryColor;
+          }
+        }
+      }
+      @include xs {
+        .contacts {
+          gap: 15px;
+          a {
+            font-size: 13px;
+            padding: 0 15px;
+            height: 45px;
+          }
+        }
+      }
+    }
+    .bottom {
+      width: 100%;
+      background: linear-gradient(262.98deg, #754c28 10.97%, #3b2314 90.37%);
+      .container {
+        padding: 20px 0;
+        color: white;
+        gap: clamp(15px, 4vw, 45px);
+        @include flex(_, center);
+        @include sm {
+          flex-direction: column;
+          justify-content: center;
+        }
+        .socials {
+          gap: 21px;
+          @include flex(_, center);
+          flex-wrap: wrap;
+
+          a {
+            width: 50px;
+            height: 50px;
+            padding: 17px;
+            border: 1.5px solid $secondaryColor;
+            border-radius: 50%;
+            @include flex(_, center);
+            color: $secondaryColor;
+
+            &:hover {
+              background: $secondaryColor;
+              color: $mainColor;
+            }
+          }
+        }
+        .developed-by {
+          img {
+            margin-inline-start: 20px;
+          }
+        }
+      }
+    }
+  }
+}

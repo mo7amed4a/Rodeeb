@@ -1,0 +1,318 @@
+@mixin flex($direction: row, $justify: flex-start, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin xxxs {
+  @media only screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin xxss {
+  @media only screen and (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin xxs {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin xl {
+  @media only screen and (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin dir {
+  body[dir="ltr"] & {
+    @content;
+  }
+}
+
+@mixin pseudo {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include flex(column, center, center);
+}
+
+@mixin pseudo_center {
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+@mixin gradient_back {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      133.35deg,
+      $gradientColor -8.58%,
+      $mainColor 108.81%
+    ) !important;
+    z-index: -1;
+    animation: gradient_in $transition ease 1;
+  }
+  color: white !important;
+  border: 0;
+  text-decoration: none;
+}
+@mixin gradient_back_extra {
+  &::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+      133.35deg,
+      $gradientColor -8.58%,
+      $mainColor 108.81%
+    ) !important;
+    z-index: -1;
+    animation: gradient_in $transition ease 1;
+  }
+  color: white !important;
+  border: 0;
+  text-decoration: none;
+}
+@mixin gradient_back_hover {
+  &::before {
+    animation: gradient_out $transition ease 1;
+    transform: rotate(180deg);
+
+    // opacity: 0;
+    // background: linear-gradient(
+    //   -133.35deg,
+    //   $gradientColor -8.58% $mainColor 108.81%
+    // ) !important;
+  }
+}
+
+@keyframes gradient_in {
+  from {
+    scale: 5;
+
+    transform: rotate(180deg);
+  }
+  to {
+    scale: 1;
+
+    transform: rotate(0deg);
+  }
+}
+@keyframes gradient_out {
+  // 0% {
+  //   opacity: 1;
+  // }
+  // 50% {
+  //   opacity: 0.5;
+  // }
+  // 100% {
+  //   opacity: 0.5;
+  // }
+  from {
+    scale: 5;
+
+    transform: rotate(0deg);
+  }
+  to {
+    scale: 1;
+
+    transform: rotate(180deg);
+  }
+}
+@keyframes gradient_opacity_out {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes gradient_opacity_in {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@mixin gradient_back_when_hover {
+  &::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+      133.35deg,
+      $gradientColor -8.58%,
+      $mainColor 108.81%
+    ) !important;
+    z-index: -1;
+    animation: gradient_opacity_out $transition ease 1;
+    opacity: 0;
+  }
+  & {
+    transition: $transition;
+  }
+  &:hover {
+    &::before {
+      animation: gradient_opacity_in $transition ease 1;
+      opacity: 1;
+    }
+  }
+  color: white !important;
+  border: 0;
+  text-decoration: none;
+}
+
+@mixin keyframes($name, $name1) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/* CUSTOM LOADER */
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  transform: $transform;
+}
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  animation: $animation;
+}
+@mixin keyframes($name, $name1) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin opacity($opacity) {
+  -webkit-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin animate($transitionType: opacityy) {
+  animation: $transitionType $transition 1;
+}
+
+@keyframes opacityy {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes translateTop {
+  from {
+    opacity: 0.5;
+    transform: translate(0, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: unset;
+  }
+}
+@keyframes translateDown {
+  from {
+    opacity: 0.5;
+    transform: translate(0, -100%);
+  }
+  to {
+    opacity: 1;
+    transform: unset;
+  }
+}
+
+@mixin lightDark($lightColor, $darkColor, $type) {
+  #{$type}: $lightColor !important;
+  .dark & {
+    #{$type}: $darkColor !important;
+  }
+}
+
+@mixin textGradientColor {
+  background: linear-gradient(90deg, #754c28 0.01%, #3b2314 134.98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@mixin afterBefore {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

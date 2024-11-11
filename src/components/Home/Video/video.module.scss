@@ -1,0 +1,90 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.video {
+  position: relative;
+  margin-top: 180px;
+  background-size: cover;
+  @media (max-width: 768px) {
+    margin-top: 50px;
+  }
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 90%;
+  //   background: url("../../../assets/images/offers-back.png") no-repeat;
+  //   background-size: cover;
+  //   clip-path: ellipse(137% 50% at center);
+  //   z-index: -1;
+  // }
+  :global {
+    .wrapper {
+      // padding: 90px 72px 124px;
+      min-height: 650px;
+      gap: 45px;
+      @include xs {
+        min-height: 460px;
+      }
+
+      @include flex(_, space-between);
+      iframe {
+        min-height: 650px;
+        width: 100%;
+        height: 100%;
+        clip-path: ellipse(137% 50% at center);
+        @include sm {
+          clip-path: ellipse(215% 50% at center);
+        }
+      }
+      div {
+        img {
+          position: absolute;
+          bottom: 50%;
+          left: 50%;
+          translate: -50% 50%;
+          width: 50px;
+          height: 50px;
+          filter: brightness(0) invert(1);
+          cursor: pointer;
+          &:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            transform: rotate(0deg);
+            animation: rotatee 1s linear infinite;
+          }
+          @keyframes rotatee {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+      img {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        translate: -50% 50%;
+        width: 134px;
+        aspect-ratio: 1;
+        z-index: 99;
+        filter: brightness(0.7);
+        clip-path: ellipse(137% 50% at center);
+        @include sm {
+          clip-path: ellipse(215% 50% at center);
+        }
+        &.thumb {
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

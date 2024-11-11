@@ -1,0 +1,63 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.aboutUs {
+  position: relative;
+  margin-top: 80px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+  :global {
+    .wrapper {
+      background: linear-gradient(
+        180deg,
+        #f3f1ef 38.91%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      border-radius: 50px 50px 0px 0px;
+      padding: clamp(35px, 9vw, 90px) clamp(25px, 7vw, 72px)
+        clamp(50px, 12vw, 124px);
+      gap: 45px;
+      @include flex(column);
+      &:before {
+        @include afterBefore();
+        // height: calc(100% + 140px);
+        top: initial;
+        bottom: 0;
+        width: 493px;
+        height: clamp(185px, 20vw, 380px);
+        margin-bottom: -140px;
+        background: url("../../../assets/images/almonds.png") no-repeat;
+        background-size: contain;
+        background-position: left bottom;
+      }
+      &:after {
+        @include afterBefore();
+        width: 395px;
+        height: clamp(85px, 15vw, 211px);
+        top: -44px;
+        left: initial;
+        right: 0;
+        background: url("../../../assets/images/chocolate.png") no-repeat;
+        background-size: contain;
+        background-position: right top;
+      }
+      @include sm {
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+      p {
+        text-align: center;
+        font-size: 20px;
+        line-height: 46px;
+        @include textGradientColor();
+      }
+      a {
+        background: linear-gradient(90deg, #754c28 0.01%, #3b2314 134.98%);
+        border-radius: 50px;
+      }
+    }
+  }
+}

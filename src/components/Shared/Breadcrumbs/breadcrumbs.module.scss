@@ -1,0 +1,67 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.crumbs {
+  z-index: 1;
+  text-align: center;
+  position: relative;
+  &:after {
+    @include afterBefore();
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    translate: 0 80%;
+    left: initial;
+    right: 0;
+    background: url("../../../assets/images/crumbs-right.png") no-repeat;
+    background-size: contain;
+    background-position: right top;
+  }
+  @include sm {
+    &:after {
+      display: none;
+    }
+  }
+  :global {
+    .content {
+      padding: 110px 0;
+      background: url("../../../assets/images/offers-back.png");
+      background-size: cover;
+      clip-path: ellipse(157% 100% at 48% 0%);
+      gap: 7px;
+      @include flex(_, center);
+      @include sm {
+        clip-path: ellipse(247% 100% at 48% 0%);
+      }
+
+      span {
+        color: $secondaryColor;
+        font-size: 24px;
+        line-height: 1.1;
+        &:first-child,
+        &:nth-child(2) {
+          color: white;
+        }
+      }
+    }
+    @include xxss {
+      margin-bottom: 40px;
+      .content {
+        padding: 40px 0;
+
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+    @include xs {
+      .content {
+        padding: 40px 0;
+
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

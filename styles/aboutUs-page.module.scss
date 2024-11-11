@@ -1,0 +1,96 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.aboutPage :global {
+  .info-wrapper {
+    margin-top: clamp(30px, 13vw, 136px);
+    margin-bottom: clamp(20px, 8vw, 80px);
+    gap: 30px;
+    .info {
+      flex: 1;
+      .details * {
+        font-size: clamp(14px, 1.8vw, 18px);
+      }
+    }
+    img {
+      flex: 1;
+    }
+    @include flex();
+    @include sm {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .story {
+    position: relative;
+    &:before {
+      @include afterBefore();
+      display: block !important;
+      // height: calc(100% + 140px);
+      top: initial;
+      top: 0;
+      width: 493px;
+      height: clamp(120px, 38vw, 380px);
+      translate: 0 -70%;
+      background: url("../src/assets/images/almonds.png") no-repeat;
+      background-size: contain;
+      background-position: left bottom;
+      @include xs {
+        display: none !important;
+      }
+    }
+  }
+  .insta {
+    .container {
+      text-align: center;
+      .insta-items {
+        margin-top: clamp(20px, 8vw, 80px);
+        margin-bottom: clamp(30px, 14vw, 140px);
+        gap: 30px;
+        @include flex(_, _, stretch);
+        flex-wrap: wrap;
+        .item {
+          position: relative;
+          width: calc(25% - 26px);
+          border-radius: 50px;
+          overflow: hidden;
+          @include sm {
+            width: calc(30% - 26px);
+          }
+          @include xs {
+            width: calc(50% - 26px);
+          }
+          img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1;
+            max-height: 285px;
+            object-fit: cover;
+            z-index: 99;
+          }
+          a {
+            @include afterBefore;
+            transition: $transition;
+            max-height: 0;
+            overflow: hidden;
+            background: rgba($color: #000000, $alpha: 0.5);
+            @include flex(_, center);
+            z-index: 99;
+            img {
+              width: 30px;
+              height: auto;
+              aspect-ratio: 1;
+              object-fit: cover;
+            }
+          }
+          &:hover {
+            a {
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

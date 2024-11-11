@@ -1,0 +1,102 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.offers {
+  position: relative;
+  margin-top: clamp(30px, 7vw, 80px);
+  text-align: end;
+  background-size: cover;
+  overflow: hidden;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: url("../../../assets/images/offers-back.png") no-repeat;
+    background-size: cover;
+    clip-path: ellipse(137% 50% at center);
+    @include sm {
+      clip-path: ellipse(215% 50% at center);
+    }
+    z-index: -1;
+  }
+
+  :global {
+    .wrapper {
+      min-height: 650px;
+
+      padding: clamp(35px, 9vw, 90px) clamp(25px, 7vw, 72px)
+        clamp(45px, 12vw, 124px);
+
+      gap: 45px;
+      @include flex(_, space-between);
+      @include sm {
+        min-height: unset;
+
+        padding: 40px 10px 85px;
+      }
+      .info {
+        gap: 50px;
+        @include flex(column, _, stretch);
+        align-items: flex-start;
+        @include xs {
+          align-items: center;
+          gap: 25px;
+        }
+        .section-tag {
+          color: $secondaryColor;
+          background: none;
+          -webkit-text-fill-color: unset;
+          &:before,
+          &::after {
+            display: block !important;
+            background: url("../../../assets/svgs/section-tag-leaf-light.svg")
+              no-repeat;
+            background-size: contain;
+          }
+        }
+        .details {
+          text-align: start;
+          color: white;
+          text-align: start !important;
+          font-size: 28px;
+          line-height: 2;
+          max-width: 50%;
+          @include sm {
+            max-width: 100%;
+          }
+          @include xs {
+            text-align: center !important;
+            font-size: 15px;
+          }
+        }
+        a {
+          background: $secondaryColor;
+          border-radius: 50px;
+          color: $brown;
+        }
+      }
+    }
+  }
+  & > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    translate: 0 5%;
+    width: 50vw;
+    height: 100%;
+    object-fit: contain;
+    @include sm {
+      width: 80%;
+      opacity: 0.5;
+      height: auto;
+      translate: -20% 0;
+    }
+    [dir="ltr"] & {
+      left: initial;
+      right: 0;
+    }
+  }
+}
