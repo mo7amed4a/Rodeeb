@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import { Col } from "react-bootstrap";
 import { Grid, Navigation, Pagination } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
@@ -138,13 +138,15 @@ export default function CategoriesProjects({
             }`}
           >
             <div className={`swiper_button_next gradient-btn`}>
-              <Image {...arrow} alt="" />
+              <Image width="210"
+            height="212" {...arrow} alt="" />
             </div>
             {/* <div> */}
             <div className="pagination"></div>
             {/* </div> */}
             <div className={`swiper_button_prev gradient-btn `}>
-              <Image {...arrow} alt="" />
+              <Image width="210"
+            height="212" {...arrow} alt="" />
             </div>
           </div>
         </div>

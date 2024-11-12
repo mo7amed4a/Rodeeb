@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import server from "@/src/api/server";
 import {
@@ -29,7 +29,8 @@ const SingleProject = ({ projectData, projectsData }) => {
   const items = projectData?.images;
 
   const renderImages = items?.map((item, index) => (
-    <Image
+    <Image width="210"
+            height="212"
       key={index}
       src={handleImage(item)}
       fill="true"
@@ -99,7 +100,8 @@ const SingleProject = ({ projectData, projectsData }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image {...instaShareIcon} alt="" />
+                  <Image width="210"
+            height="212" {...instaShareIcon} alt="" />
                 </a>
                 <a
                   title="Share"
@@ -107,7 +109,8 @@ const SingleProject = ({ projectData, projectsData }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image {...snapShareIcon} alt="" />
+                  <Image width="210"
+            height="212" {...snapShareIcon} alt="" />
                 </a>
                 <a
                   title="Share"
@@ -115,7 +118,8 @@ const SingleProject = ({ projectData, projectsData }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image {...twitterShareIcon} alt="" />
+                  <Image width="210"
+            height="212" {...twitterShareIcon} alt="" />
                 </a>
               </div>
             </div>

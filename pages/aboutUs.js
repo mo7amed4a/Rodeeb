@@ -4,7 +4,7 @@ import server from "@/src/api/server";
 // import About from "@/src/components/Home/About";
 // import Clients from "@/src/components/Home/Clients";
 // import { Col } from "react-bootstrap";
-import Image from "next/future/image";
+import Image from "next/image";
 import { FormattedMessage, useIntl } from "react-intl";
 import styles from "@/styles/aboutUs-page.module.scss";
 
@@ -34,7 +34,8 @@ export default function AboutUs({ aboutUsDate }) {
       />
       <Link href={member?.url || "#"}>
         <a target="_blank">
-          <Image {...instaIcon} alt="" />
+          <Image width="210"
+            height="212" {...instaIcon} alt="" />
         </a>
       </Link>
     </div>

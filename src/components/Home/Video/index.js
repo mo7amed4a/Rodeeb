@@ -1,7 +1,7 @@
 import { FormattedMessage, useIntl } from "react-intl";
 import styles from "./video.module.scss";
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 import { getYoutubeId, handleImage } from "@/src/helpers";
 import videoIcon from "@/src/assets/svgs/home-video.svg";
 import playIcon from "@/src/assets/svgs/play-fill.svg";
@@ -17,8 +17,10 @@ export default function Video({ data }) {
         {!play ? (
           <>
             <div>
-              <Image {...playIcon} alt="" onClick={() => setPlay(!play)} />
-              <Image {...videoIcon} alt="" onClick={() => setPlay(!play)} />
+              <Image width="210"
+            height="212" {...playIcon} alt="" onClick={() => setPlay(!play)} />
+              <Image width="210"
+            height="212" {...videoIcon} alt="" onClick={() => setPlay(!play)} />
             </div>
             <Image
               className="thumb"

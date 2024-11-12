@@ -2,7 +2,7 @@ import { FormattedMessage, useIntl } from "react-intl";
 import styles from "./clients.module.scss";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/future/image";
+import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
 

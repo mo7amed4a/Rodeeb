@@ -2,7 +2,7 @@ import { FormattedMessage, useIntl } from "react-intl";
 import styles from "./footer.module.scss";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/future/image";
+import Image from "next/image";
 import logo from "@/src/assets/svgs/logo-light.svg";
 
 import mailIcon from "@/src/assets/svgs/mail.svg";
@@ -69,13 +69,15 @@ export default function Footer({ data, initData }) {
             </span>
             <Link href={`mailto:${initData?.siteInfo?.email || ""}`}>
               <a className="btn mail">
-                <Image {...mailIcon} alt="" />
+                <Image width="210"
+            height="212" {...mailIcon} alt="" />
                 <FormattedMessage id="to-help" />
               </a>
             </Link>
             <Link href={`tel:${initData?.siteInfo?.phone || ""}`}>
               <a className="btn">
-                <Image {...phoneIcon} alt="" />
+                <Image width="210"
+            height="212" {...phoneIcon} alt="" />
                 <Link href={`tel:${initData?.siteInfo?.phone}`}>
                   <p className="phone">{initData?.siteInfo?.phone || ""}</p>
                 </Link>

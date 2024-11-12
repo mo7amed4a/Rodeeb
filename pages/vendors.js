@@ -4,7 +4,7 @@ import server from "@/src/api/server";
 // import About from "@/src/components/Home/About";
 // import Clients from "@/src/components/Home/Clients";
 // import { Col } from "react-bootstrap";
-import Image from "next/future/image";
+import Image from "next/image";
 import { FormattedMessage, useIntl } from "react-intl";
 import styles from "@/styles/vendors-page.module.scss";
 import arrow from "@/src/assets/svgs/arrow-down.svg";
@@ -77,7 +77,8 @@ export default function VendorsPage({ vendorsDate }) {
       />
       <div className="details">
         <div>
-          <Image {...locationIcon} alt="" />
+          <Image width="210"
+            height="212" {...locationIcon} alt="" />
           <p
             title={`${member?.area?.[locale] || ""} / ${
               member?.city?.[locale] || ""
@@ -87,15 +88,18 @@ export default function VendorsPage({ vendorsDate }) {
           </p>
         </div>
         <div>
-          <Image {...shopIcon} alt="" />
+          <Image width="210"
+            height="212" {...shopIcon} alt="" />
           <p title={member?.name?.[locale]}>{member?.name?.[locale] || ""}</p>
           <div className="rate">
             {`${member?.rate || 3}/5`}
-            <Image {...starIcon} alt="" />
+            <Image width="210"
+            height="212" {...starIcon} alt="" />
           </div>
         </div>
         <div>
-          <Image {...phoneIcon} alt="" />
+          <Image width="210"
+            height="212" {...phoneIcon} alt="" />
           <Link href={`tel:${member?.phone}`}>
             <p className="phone">{member?.phone || ""}</p>
           </Link>
@@ -238,11 +242,13 @@ export default function VendorsPage({ vendorsDate }) {
               }`}
             >
               <div className={`swiper_button_next gradient-btn`}>
-                <Image {...arrow} alt="" />
+                <Image width="210"
+            height="212" {...arrow} alt="" />
               </div>
               <div className="pagination"></div>
               <div className={`swiper_button_prev gradient-btn `}>
-                <Image {...arrow} alt="" />
+                <Image width="210"
+            height="212" {...arrow} alt="" />
               </div>
             </div>
             {/* <div className="shops-items">{renderItems}</div> */}

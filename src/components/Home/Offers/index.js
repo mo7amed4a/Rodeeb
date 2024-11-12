@@ -1,7 +1,7 @@
 import { FormattedMessage, useIntl } from "react-intl";
 import styles from "./offers.module.scss";
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 import { handleImage } from "@/src/helpers";
 import image from "@/src/assets/images/offers.png";
 

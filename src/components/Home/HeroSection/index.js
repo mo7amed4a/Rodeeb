@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import { FormattedMessage } from "react-intl";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,7 +21,7 @@ const Hero = ({ heroData, initData }) => {
 
   const renderHeroItems = heroData?.sliders?.map((item, index) => (
     <SwiperSlide key={index}>
-      <Image
+      <Image 
         src={handleImage(item?.image || item)}
         width={1920}
         height={829}
@@ -41,7 +41,8 @@ const Hero = ({ heroData, initData }) => {
 
   const renderMiniImages = heroData?.sliders?.map((item, index) => (
     <SwiperSlide key={index}>
-      <Image
+      <Image width="210"
+            height="212"
         src={handleImage(item?.image || item)}
         fill="true"
         alt="miniProductImage"
@@ -136,11 +137,13 @@ const Hero = ({ heroData, initData }) => {
 
               <div className={`custom-pagination `}>
                 <div className={`swiper_button_next gradient-btn`}>
-                  <Image {...arrowIcon} alt="" />
+                  <Image width="210"
+            height="212" {...arrowIcon} alt="" />
                 </div>
                 <div className="pagination"></div>
                 <div className={`swiper_button_prev gradient-btn `}>
-                  <Image {...arrowIcon} alt="" />
+                  <Image width="210"
+            height="212" {...arrowIcon} alt="" />
                 </div>
               </div>
             </div>

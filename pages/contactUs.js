@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import { FormattedMessage, useIntl } from "react-intl";
 import styles from "@/styles/contactUs.module.scss";
@@ -75,7 +75,8 @@ const ContactPage = ({ initData, error, contactData }) => {
               </div>
               <div className="contact-element">
                 <div className="icon">
-                  <Image {...locationIcon} alt="" />
+                  <Image width="210"
+            height="212" {...locationIcon} alt="" />
                 </div>
                 <div className="contact-details">
                   <p>
@@ -88,7 +89,8 @@ const ContactPage = ({ initData, error, contactData }) => {
               </div>
               <div className="contact-element">
                 <div className="icon">
-                  <Image {...telIcon} alt="" />
+                  <Image width="210"
+            height="212" {...telIcon} alt="" />
                 </div>
                 <div className="contact-details">
                   <p>
@@ -103,7 +105,8 @@ const ContactPage = ({ initData, error, contactData }) => {
               </div>
               <div className="contact-element">
                 <div className="icon">
-                  <Image {...emailIcon} alt="" />
+                  <Image  width="210"
+            height="212" {...emailIcon} alt="" />
                 </div>
                 <div className="contact-details">
                   <p>
@@ -118,7 +121,8 @@ const ContactPage = ({ initData, error, contactData }) => {
               </div>
               <div className="contact-element">
                 <div className="icon">
-                  <Image {...clockIcon} alt="" />
+                  <Image width="210"
+            height="212" {...clockIcon} alt="" />
                 </div>
                 <div className="contact-details">
                   <p>

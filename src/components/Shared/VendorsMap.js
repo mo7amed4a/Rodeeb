@@ -9,7 +9,7 @@ import shopIcon from "@/src/assets/svgs/shop.svg";
 import starIcon from "@/src/assets/svgs/star.svg";
 import phoneIcon from "@/src/assets/svgs/phone.svg";
 import { useIntl } from "react-intl";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function VendorsMap({ data }) {
@@ -36,19 +36,23 @@ export default function VendorsMap({ data }) {
           />
           <div className="details">
             <div>
-              <Image {...locationIcon} alt="" />
+              <Image {...locationIcon} width="210"
+            height="212" alt="" />
               {section?.area?.[locale] || ""} / {section?.city?.[locale] || ""}
             </div>
             <div>
-              <Image {...shopIcon} alt="" />
+              <Image {...shopIcon} width="210"
+            height="212" alt="" />
               {section?.shop?.[locale] || ""}
               <div className="rate">
                 {`${section?.rate || 3}/5`}
-                <Image {...starIcon} alt="" />
+                <Image {...starIcon} width="210"
+            height="212" alt="" />
               </div>
             </div>
             <div>
-              <Image {...phoneIcon} alt="" />
+              <Image width="210"
+            height="212" {...phoneIcon} alt="" />
               <Link href={`tel:${section?.phone}`}>
                 <p className="phone">{section?.phone || ""}</p>
               </Link>

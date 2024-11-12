@@ -2,7 +2,7 @@ import { FormattedMessage, useIntl } from "react-intl";
 import styles from "./header.module.scss";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/future/image";
+import Image from "next/image";
 import logo from "@/src/assets/images/logo.png";
 
 import burgerIcon from "@/src/assets/svgs/burger.svg";
@@ -31,7 +31,8 @@ export default function Header({ initData }) {
             </a>
           </Link>
           <label htmlFor="nav-toggle" className="toggle-handle">
-            <Image {...burgerIcon} alt="" />
+            <Image width="210"
+            height="212" {...burgerIcon} alt="" />
           </label>
         </div>
         {/* ------------------------------------------ */}
@@ -73,7 +74,8 @@ export default function Header({ initData }) {
                 {renderSocial(initData)}
               </div>
               <label htmlFor="nav-toggle" className="toggle-handle">
-                <Image {...closeIcon} alt="" />
+                <Image width="210"
+            height="212" {...closeIcon} alt="" />
               </label>
             </div>
           </label>
