@@ -6,7 +6,6 @@ module.exports = {
       "rodib.ejjadh.info",
       "img.youtube.com",
       "www.rodib.ejjadh.info",
-      "192.168.1.22"
     ],
   },
 
